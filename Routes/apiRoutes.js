@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const { QueryTypes } = require("sequelize");
 
 ////////////////////////////////////
 ///////Dining Hall Endpoints////////
@@ -155,6 +156,18 @@ router.get("/restrictions/:restriction_id", (req, res) => {
     },
   })
     .then((restrictions) => res.send(restrictions))
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+////////////////////////////////////
+/////////Custom SQL Endpoint////////
+////////////////////////////////////
+router.get("/custom", (req, res) => {
+  db.sequelize
+    .query(req.body.query, { type: QueryTypes.SELECT })
+    .then((result) => res.send(result))
     .catch((error) => {
       console.log(error);
     });
