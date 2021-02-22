@@ -1,10 +1,4 @@
-# REST API example application
-
-This is a bare-bones example of a Sinatra application providing a REST
-API to a DataMapper-backed model.
-
-
-
+# REST API example using Sequelize
 <table>
   <thead>
     <tr>
@@ -277,8 +271,7 @@ API to a DataMapper-backed model.
         (`Dining_Hall_Tracker`.`Meals`.`meal_id` = `Dining_Hall_Tracker`.`Macros`.`meal_id`)'   
 
 #### Response
-    [[
-    {
+    [{
         "meal_name": "Scrambled Eggs",
         "calories": 218,
         "carbs": 1,
