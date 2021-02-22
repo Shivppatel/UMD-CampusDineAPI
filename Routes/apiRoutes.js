@@ -26,7 +26,7 @@ router.get("/dining/:hall_id", (req, res) => {
     });
 });
 
-router.post("/new/dining", (req, res) => {
+router.post("/dining", (req, res) => {
   db.Dining_Hall.create({
     hall_id: req.body.hall_id,
     hall_name: req.body.hall_name,
@@ -38,7 +38,7 @@ router.post("/new/dining", (req, res) => {
     });
 });
 
-router.delete("/delete/dining/:hall_id", (req, res) => {
+router.delete("/dining/:hall_id", (req, res) => {
   db.Dining_Hall.destroy({
     where: {
       hall_id: req.params.hall_id,
@@ -46,7 +46,7 @@ router.delete("/delete/dining/:hall_id", (req, res) => {
   }).then(() => res.send("Successfully Deleted"));
 });
 
-router.put("/edit/dining", (req, res) => {
+router.put("/dining", (req, res) => {
   db.Dining_Hall.update(
     {
       hall_name: req.body.hall_name,
@@ -82,7 +82,7 @@ router.get("/meals/:meal_id", (req, res) => {
       console.log(error);
     });
 });
-router.put("/edit/meal", (req, res) => {
+router.put("/meals", (req, res) => {
   db.Meals.update(
     {
       meal_name: req.body.meal_name,
@@ -117,7 +117,7 @@ router.get("/macros/:meal_id", (req, res) => {
       console.log(error);
     });
 });
-router.put("/edit/macros", (req, res) => {
+router.put("/macros", (req, res) => {
   db.Macros.update(
     {
       meal_name: req.body.meal_name,
