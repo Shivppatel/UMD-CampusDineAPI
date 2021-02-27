@@ -1,15 +1,17 @@
-const express = require("express");
+import express from 'express';
+import db from './models/initializeDB.js';
+import apiRoutes from './routes/apiRoutes.js';
+
 const app = express();
-const db = require("./models");
+
 const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const apiRoutes = require("./Routes/apiRoutes");
-app.use("/api", apiRoutes);
+app.use('/api', apiRoutes);
 
-db.sequelize.sync().then(() => {
+db.sequelizeDB.sync().then(() => {
   app.listen(PORT, () => {
     console.log(`Listening on: http//localhost:${PORT}`);
   });
