@@ -1,5 +1,5 @@
 import express from 'express';
-import db from './models/initializeDB.js';
+import db from './database/initializeDB.js';
 import apiRoutes from './routes/apiRoutes.js';
 
 const app = express();
@@ -11,8 +11,18 @@ app.use(express.json());
 
 app.use('/api', apiRoutes);
 
-db.sequelizeDB.sync().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Listening on: http//localhost:${PORT}`);
-  });
-});
+console.log(db.sequelizeDB.sync);
+
+async function bootServer() {
+  try {
+    const mysql = await db.sequelizeDB;
+    await mysql.sync();
+    app.listen(PORT, () => {
+      console.log(`Listening on: http//localhost:${PORT}`);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+bootServer();
