@@ -20,13 +20,19 @@ if (config.use_env_variable) {
   );
 }
 
-const db = modelList.reduce((collection, model) => {
-  if (!collection[model.name]) {
+const db = Object.keys(modelList).reduce((collection, modelName) => {
+
+  if (!collection[modelName]) {
     // eslint-disable-next-line no-param-reassign
-    collection[model.name] = model(sequelizeDB, DataTypes);
+    collection[modelName] = modelList[modelName](sequelizeDB, DataTypes);
   }
   return collection;
 }, {});
+
+// const models = sequelizeDB.models;
+// Object.keys(models).map((modelKey) => models[modelKey])
+//   .filter((model) => model.associate !== undefined)
+//   .forEach((model) => model.associate(models));
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
