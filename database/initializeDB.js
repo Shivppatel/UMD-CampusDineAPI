@@ -3,8 +3,8 @@ import fs from 'fs';
 import path, { join } from 'path';
 import Sequelize from 'sequelize';
 
-import configOptions from '../config/config.js';
-import modelList from './index.js';
+import configOptions from './config.js';
+import modelList from '../models/index.js';
 
 const { DataTypes } = Sequelize;
 
