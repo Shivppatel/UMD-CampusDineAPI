@@ -1,6 +1,3 @@
-import fs from 'fs';
-// import { promises as fs } from 'fs';
-import path, { join } from 'path';
 import Sequelize from 'sequelize';
 
 import configOptions from './config.js';
