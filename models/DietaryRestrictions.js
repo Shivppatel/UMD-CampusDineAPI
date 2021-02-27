@@ -1,7 +1,5 @@
-const { Sequelize, DataTypes } = require("sequelize");
-
-module.exports = (sequelize, DataTypes) => {
-  const Dietary_Restrictions = sequelize.define(
+export default (sequelize, DataTypes) => {
+  const DietaryRestrictions = sequelize.define(
     "Dietary_Restrictions",
     {
       restriction_id: {
@@ -15,5 +13,5 @@ module.exports = (sequelize, DataTypes) => {
     },
     { freezeTableName: true, timestamps: false }
   );
-  return Dietary_Restrictions;
+  return DietaryRestrictions;
 };

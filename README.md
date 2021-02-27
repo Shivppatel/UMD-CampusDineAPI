@@ -257,18 +257,18 @@
     curl --location --request GET 'http://localhost:3000/api/custom' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'query=SELECT 
-    `Dining_Hall_Tracker`.`Meals`.`meal_name` AS `meal_name`,
-        `Dining_Hall_Tracker`.`Macros`.`calories` AS `calories`,
-        `Dining_Hall_Tracker`.`Macros`.`carbs` AS `carbs`,
-        `Dining_Hall_Tracker`.`Macros`.`sodium` AS `sodium`,
-        `Dining_Hall_Tracker`.`Macros`.`protein` AS `protein`,
-        `Dining_Hall_Tracker`.`Macros`.`fat` AS `fat`,
-        `Dining_Hall_Tracker`.`Macros`.`cholesterol` AS `cholesterol`
+    `DiningHall_Tracker`.`Meals`.`meal_name` AS `meal_name`,
+        `DiningHall_Tracker`.`Macros`.`calories` AS `calories`,
+        `DiningHall_Tracker`.`Macros`.`carbs` AS `carbs`,
+        `DiningHall_Tracker`.`Macros`.`sodium` AS `sodium`,
+        `DiningHall_Tracker`.`Macros`.`protein` AS `protein`,
+        `DiningHall_Tracker`.`Macros`.`fat` AS `fat`,
+        `DiningHall_Tracker`.`Macros`.`cholesterol` AS `cholesterol`
     FROM
-        (`Dining_Hall_Tracker`.`Meals`
-        JOIN `Dining_Hall_Tracker`.`Macros`)
+        (`DiningHall_Tracker`.`Meals`
+        JOIN `DiningHall_Tracker`.`Macros`)
     WHERE
-        (`Dining_Hall_Tracker`.`Meals`.`meal_id` = `Dining_Hall_Tracker`.`Macros`.`meal_id`)'   
+        (`DiningHall_Tracker`.`Meals`.`meal_id` = `DiningHall_Tracker`.`Macros`.`meal_id`)'   
 
 #### Response
     [{

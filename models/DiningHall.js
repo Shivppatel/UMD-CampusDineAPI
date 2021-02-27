@@ -1,7 +1,5 @@
-const { Sequelize, DataTypes } = require("sequelize");
-
-module.exports = (sequelize, DataTypes) => {
-  const Dining_Hall = sequelize.define(
+export default (database, DataTypes) => {
+  const DiningHall = database.define(
     "Dining_Hall",
     {
       hall_id: {
@@ -18,5 +16,5 @@ module.exports = (sequelize, DataTypes) => {
     },
     { freezeTableName: true, timestamps: false }
   );
-  return Dining_Hall;
+  return DiningHall;
 };
