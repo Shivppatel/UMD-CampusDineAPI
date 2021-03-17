@@ -1,17 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UMD Dining Hall</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <script src="script.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UMD Dining Hall</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+  <script src="https://kit.fontawesome.com/978cb43e08.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <section class="hero is-link is-fullheight">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              <p class="subtitle">Dining Hall Tracker</p>
+            </a>
+            <span class="navbar-burger" data-target="navbarMenuHeroB">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroB" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item is-active"> Home </a>
+              <a href="./pages/about.html" class="navbar-item"> About </a>
+              <a href="./pages/documentation.html" class="navbar-item">
+                Documentation
+              </a>
+              <span class="navbar-item">
+                <a href="https://github.com/Shivppatel/sequelize" target="_blank" class="button is-info is-inverted">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Source Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="title">UMD Dining Information</p>
+        <p class="subtitle">INST377 Example</p>
+      </div>
+    </div>
+    <nav class="level pb-6">
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Dining Halls</p>
+          <p class="title">3</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Meals</p>
+          <p class="title">46</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Macro Points</p>
+          <p class="title">322</p>
+        </div>
+      </div>
+    </nav>
+    </div>
+
+    <div class="hero-foot">
+      <div class="tabs is-centered is-boxed is-medium">
+        <ul>
+          <li class="">
+            <a>
+              <span class="icon is-small"><i class="fas fa-clock" aria-hidden="true"></i></span>
+              <span>Hall Hours</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="icon is-small"><i class="fas fa-weight" aria-hidden="true"></i></span>
+              <span>Meals and Macros</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="icon is-small"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
+              <span>Add a Location</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <i class="fas fa-chevron-down has-text-centered pb-3"></i>
+  </section>
+
+  <section class="section has-text-centered has-background-info-light">
+    <p class="title">Nearby Places</p>
+    <p class="subtitle">
+      A simple container to divide your page into <strong>sections</strong>,
+      like the one you're currently reading.
+    </p>
+    <div class="tile is-ancestor is-justify-content-center"></div>
+  </section>
+
+  <div class="has-background-info-light">
+    <p class="title has-text-centered">Meal Macro Information</p>
+    <table class="table is-bordered is-hoverable is-fullwidth is-striped">
+      <thead>
+        <tr>
+          <th>Meal Id</th>
+          <th>Name</th>
+          <th>Calories</th>
+          <th>Carbs</th>
+          <th>Sodium</th>
+          <th>Protein</th>
+          <th>Fat</th>
+          <th>Cholesterol</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <section class="section has-background-info-light">
+    <p class="title">Add Restaurant</p>
+    <p class="subtitle">
+      Do you know a place <strong>near</strong> campus? Add it to our
+      database!
+    </p>
+    <form class="box has-text-centered is-half" action="/api/dining" method="post" target="/">
+      <div class="field">
+        <p class="control has-icons-left">
+          <input class="input" type="text" name="hall_name" placeholder="Restaurant Name" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-utensils"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left">
+          <input class="input" name="hall_location" type="text" placeholder="Location" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-map-signs"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control">
+          <button class="button is-link" type="submit">Submit</button>
+        </p>
+      </div>
+    </form>
+  </section>
+  <footer class="footer has-background-info-light">
+    <div class="content has-text-centered">
+      <p>
+        <strong>UMD Dining Information</strong> by
+        <a href="https://github.com/Shivppatel" target="_blank">Shiv Patel</a>. The source code is licensed _____. The
+        website content is licensed
+        by _____.
+      </p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="bulmaNav.js"></script>
+</body>
+
 </html>
