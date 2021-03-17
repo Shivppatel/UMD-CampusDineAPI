@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import e from "express";
 import express from "express";
 import sequelize from "sequelize";
 
@@ -42,7 +41,6 @@ router.get("/dining/:hall_id", async (req, res) => {
 });
 
 router.post("/dining", async (req, res) => {
-  e.preventDeafult;
   const halls = await db.DiningHall.findAll();
   const current_id = (await halls.length) + 1;
   try {
