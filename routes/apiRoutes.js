@@ -32,6 +32,7 @@ router.get("/dining/:hall_id", async (req, res) => {
         hall_id: req.params.hall_id,
       },
     });
+
     res.json(hall);
   } catch (err) {
     console.error(err);
@@ -40,9 +41,11 @@ router.get("/dining/:hall_id", async (req, res) => {
 });
 
 router.post("/dining", async (req, res) => {
+  const halls = await db.DiningHall.findAll();
+  const current_id = (await halls.length) + 1;
   try {
     const newDining = await db.DiningHall.create({
-      hall_id: req.body.hall_id,
+      hall_id: current_id,
       hall_name: req.body.hall_name,
       hall_location: req.body.hall_location,
     });
@@ -220,12 +223,14 @@ router.get("/restrictions/:restriction_id", async (req, res) => {
 /// /////////////////////////////////
 /// //////Custom SQL Endpoint////////
 /// /////////////////////////////////
+const testCustom =
+  "SELECT `Dining_Hall_Tracker`.`Meals`.`meal_id` AS `meal_id`,`Dining_Hall_Tracker`.`Meals`.`meal_name` AS `meal_name`,`Dining_Hall_Tracker`.`Macros`.`calories` AS `calories`,`Dining_Hall_Tracker`.`Macros`.`carbs` AS `carbs`,`Dining_Hall_Tracker`.`Macros`.`sodium` AS `sodium`,`Dining_Hall_Tracker`.`Macros`.`protein` AS `protein`,`Dining_Hall_Tracker`.`Macros`.`fat` AS `fat`,`Dining_Hall_Tracker`.`Macros`.`cholesterol` AS `cholesterol`FROM(`Dining_Hall_Tracker`.`Meals`JOIN `Dining_Hall_Tracker`.`Macros`)WHERE(`Dining_Hall_Tracker`.`Meals`.`meal_id` = `Dining_Hall_Tracker`.`Macros`.`meal_id`)";
 router.get("/custom", async (req, res) => {
   try {
-    const result = await db.sequelizeDB.query(req.body.query, {
+    //req.body.query
+    const result = await db.sequelizeDB.query(testCustom, {
       type: sequelize.QueryTypes.SELECT,
     });
-    console.log("Result: ", result);
     res.json(result);
   } catch (err) {
     console.error(err);
