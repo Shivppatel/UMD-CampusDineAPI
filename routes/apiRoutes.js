@@ -223,24 +223,12 @@ router.get("/restrictions/:restriction_id", async (req, res) => {
 /// /////////////////////////////////
 /// //////Custom SQL Endpoint////////
 /// /////////////////////////////////
-const macrosCustom =
+const testCustom =
   "SELECT `Dining_Hall_Tracker`.`Meals`.`meal_id` AS `meal_id`,`Dining_Hall_Tracker`.`Meals`.`meal_name` AS `meal_name`,`Dining_Hall_Tracker`.`Macros`.`calories` AS `calories`,`Dining_Hall_Tracker`.`Macros`.`carbs` AS `carbs`,`Dining_Hall_Tracker`.`Macros`.`sodium` AS `sodium`,`Dining_Hall_Tracker`.`Macros`.`protein` AS `protein`,`Dining_Hall_Tracker`.`Macros`.`fat` AS `fat`,`Dining_Hall_Tracker`.`Macros`.`cholesterol` AS `cholesterol`FROM(`Dining_Hall_Tracker`.`Meals`JOIN `Dining_Hall_Tracker`.`Macros`)WHERE(`Dining_Hall_Tracker`.`Meals`.`meal_id` = `Dining_Hall_Tracker`.`Macros`.`meal_id`)";
-router.get("/macros", async (req, res) => {
-  try {
-    //req.body.query
-    const result = await db.sequelizeDB.query(macrosCustom, {
-      type: sequelize.QueryTypes.SELECT,
-    });
-    res.json(result);
-  } catch (err) {
-    console.error(err);
-    res.error("Server error");
-  }
-});
 router.get("/custom", async (req, res) => {
   try {
     //req.body.query
-    const result = await db.sequelizeDB.query(req.body.query, {
+    const result = await db.sequelizeDB.query(testCustom, {
       type: sequelize.QueryTypes.SELECT,
     });
     res.json(result);
