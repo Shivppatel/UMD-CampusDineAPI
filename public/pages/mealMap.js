@@ -46,11 +46,12 @@ function mapScript() {
         const Long = item.hall_long;
         console.log('markerLongLat', Long, Lat);
         const marker = L.marker([Lat, Long]).addTo(mapFromMapFunction);
-  
+        const popup = L.popup().setLatLng([Lat, Long]).setContent(`<p>${item.hall_name}</p>`).openOn(mapFromMapFunction);
+        marker.bindPopup(popup).openPopup();
+        mapFromMapFunction.addLayer(marker);
         const appendItem = document.createElement('li');
-        appendItem.classList.add('block');
-        appendItem.classList.add('list-item');
-        appendItem.innerHTML = `<div class="box"> <div class="list-header is-size-5">${item.meal_name}</div><address class="is-size-6">${item.hall_name}</address></div>`;
+        appendItem.classList.add('block','list-item');
+        appendItem.innerHTML = `<div class="block"><div class="list-header is-size-5">${item.meal_name}</div><address class="is-size-6">${item.hall_name}</address></div>`;
         targetList.append(appendItem);
       });
       const Lat = topFive[0]?.hall_lat;
@@ -64,8 +65,7 @@ function mapScript() {
       console.log('input', event.target.value);
       if (search.value.length === 0) {
         // clear your "no matches found" code
-        replyMessage.innerText = '';
-        replyMessage.classList.remove('box');
+        targetList.innerText = '';
       }
     });
   }
