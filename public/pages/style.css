@@ -1,4 +1,4 @@
-#mapid { height: 420px; min-width: 420px;}
+#mapid { min-height: 420px; min-width: 420px;}
 .list-header {
     font-weight: 600;
     font-size: 1.25rem;
