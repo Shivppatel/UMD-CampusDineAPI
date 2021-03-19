@@ -10,9 +10,15 @@ export default (database, DataTypes) => {
       hall_name: {
         type: DataTypes.STRING,
       },
-      hall_location: {
+      hall_address: {
         type: DataTypes.STRING,
       },
+      hall_lat: {
+        type : DataTypes.DECIMAL,
+      },
+      hall_long: {
+        type : DataTypes.DECIMAL,
+      }
     },
     { freezeTableName: true, timestamps: false }
   );
