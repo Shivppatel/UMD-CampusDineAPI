@@ -32,7 +32,7 @@ async function populateRestaurants() {
     <article class="tile is-child box has-background-link-dark ">
     <span class="subtitle has-text-light">${restaurant["hall_name"]}</span>
     <br />
-    <span class="has-text-light">${restaurant["hall_location"]}</span>
+    <span class="has-text-light">${restaurant["hall_address"].split(',').slice(0,2)}</span>
     </article>`;
     targetBox.append(appendItem);
   });
