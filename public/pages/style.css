@@ -3,4 +3,7 @@
     font-weight: 600;
     font-size: 1.25rem;
   }
-  
+
+#wrapper {
+      min-width: 55vw;
+  }
