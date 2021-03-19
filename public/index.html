@@ -140,10 +140,10 @@
       Do you know a place <strong>near</strong> campus? Add it to our
       database!
     </p>
-    <form class="box has-text-centered is-half" action="/api/dining" method="post" target="/">
+    <form class="box has-text-centered is-half" action="/api/dining" method="post">
       <div class="field">
         <p class="control has-icons-left">
-          <input class="input" type="text" name="hall_name" placeholder="Restaurant Name" />
+          <input class="input" type="text" name="hall_name" placeholder="Restaurant Name" required/>
           <span class="icon is-small is-left">
             <i class="fas fa-utensils"></i>
           </span>
@@ -151,7 +151,7 @@
       </div>
       <div class="field">
         <p class="control has-icons-left">
-          <input class="input" name="hall_address" type="text" placeholder="Address" />
+          <input class="input" name="hall_address" type="text" placeholder="Address" required/>
           <span class="icon is-small is-left">
             <i class="fas fa-map-pin"></i>
           </span>
@@ -159,7 +159,7 @@
       </div>
       <div class="field">
         <p class="control has-icons-left">
-          <input class="input" name="hall_lat" type="text" placeholder="Latitude" />
+          <input class="input" name="hall_lat" type="number" min="38" max="39" step="0.0001" placeholder="Latitude" required/>
           <span class="icon is-small is-left">
             <i class="fas fa-compass"></i>
           </span>
@@ -167,7 +167,7 @@
       </div>
       <div class="field">
         <p class="control has-icons-left">
-          <input class="input" name="hall_long" type="text" placeholder="Longitude" />
+          <input class="input" name="hall_long" type="number" min="-77" max="-76" step="0.0001"placeholder="Longitude" required/>
           <span class="icon is-small is-left">
             <i class="fas fa-compass"></i>
           </span>
