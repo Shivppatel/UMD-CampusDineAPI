@@ -6,9 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UMD Dining Hall</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
-  <script src="https://kit.fontawesome.com/978cb43e08.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="styles.css" />
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""
+/>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script
+  src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""
+></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+/>
+<script
+  src="https://kit.fontawesome.com/978cb43e08.js"
+  crossorigin="anonymous"
+></script>
+<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
@@ -30,9 +48,6 @@
             <div class="navbar-end">
               <a class="navbar-item is-active"> Home </a>
               <a href="./pages/about.html" class="navbar-item"> About </a>
-              <a href="./pages/mealMap.html" class="navbar-item">
-                Meal Map
-              </a>
               <a href="./pages/documentation.html" class="navbar-item">
                 Documentation
               </a>
@@ -105,15 +120,50 @@
     <i class="fas fa-chevron-down has-text-centered pb-3"></i>
   </section>
 
-  <section class="section has-text-centered has-background-info-light" id="halls">
-    <p class="title">Nearby Places</p>
-    <p class="subtitle">
-      Places that are near campus to get food.
-    </p>
-    <div class="tile is-ancestor is-justify-content-center"></div>
-  </section>
 
-  <div class="has-background-info-light box" id="macros"> 
+<section class="section has-background-info-light">
+  <div class="column">
+    <div class="box" id="wrapper">
+    <h1 class="title has-text-centered">Meal Locator</h1>
+    <div class="subtitle has-text-centered">
+      Food Search by Hall name or Dish
+    </div>
+    
+      <div class="container columns">
+        <div class="column info">
+          <div class="block">
+            <form id="search-form" action="" class="block form">
+              <div class="field">
+                <label class="subtitle has-text-dark" for="search"
+                  >Search</label
+                >
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    name="search"
+                    id="search"
+                    placeholder="Enter a dish or hall name (e.g. eggs)"
+                  />
+                </div>
+              </div>
+            </form>
+            <div class="reply-box block">
+              <div class="reply-message"></div>
+              <ul class="target-list"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="column is-align-self-center">
+          <div class="box" id="mapid">Map</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+  <section class="section has-background-info-light" id="macros"> 
+    <div class="box">
     <p class="title has-text-centered">Meal Macro Information</p>
     <div class="table-container">
     <table class="table is-bordered is-hoverable is-fullwidth is-striped">
@@ -131,10 +181,20 @@
       </thead>
       <tbody></tbody>
     </table>
+    </div>
+  </section>
+  <section class="section has-text-centered has-background-info-light" id="halls">
+    <div class="box">
+    <p class="title">Nearby Places</p>
+    <p class="subtitle">
+      Places that are near campus to get food.
+    </p>
+    <div class="tile is-ancestor is-justify-content-center"></div>
   </div>
-  </div>
-
+</div>
+  </section>
   <section class="section has-background-info-light" id="form">
+    <div class="box">
     <p class="title">Add Restaurant</p>
     <p class="subtitle">
       Do you know a place <strong>near</strong> campus? Add it to our
@@ -179,7 +239,9 @@
         </p>
       </div>
     </form>
+  </div>
   </section>
+  
   <footer class="footer has-background-info-light">
     <div class="content has-text-centered">
       <p>
