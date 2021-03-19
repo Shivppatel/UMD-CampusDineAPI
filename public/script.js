@@ -30,9 +30,11 @@ async function populateRestaurants() {
     appendItem.classList.add("tile", "has-text-centered", "is-parent", "is-3");
     appendItem.innerHTML = `
     <article class="tile is-child box has-background-link-dark ">
-    <span class="subtitle has-text-light">${restaurant["hall_name"]}</span>
+    <span class="subtitle has-text-light has-text-weight-bold">${restaurant["hall_name"]}</span>
     <br />
-    <span class="has-text-light">${restaurant["hall_address"].split(',').slice(0,2)}</span>
+    <span class="has-text-light">${restaurant["hall_address"].split(',')[0]}</span>
+    <br/>
+    <span class="has-text-light">${restaurant["hall_address"].split(',')[1]}</span>
     </article>`;
     targetBox.append(appendItem);
   });
