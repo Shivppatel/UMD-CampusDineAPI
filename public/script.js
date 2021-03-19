@@ -2,7 +2,7 @@ const targetList = document.querySelector("tbody");
 const targetBox = document.querySelector(".tile");
 
 async function populateMacros() {
-  const customRequest = await fetch("/api/macros");
+  const customRequest = await fetch("/api/table/data");
   const macrosData = await customRequest.json();
 
   macrosData.forEach((meal) => {
