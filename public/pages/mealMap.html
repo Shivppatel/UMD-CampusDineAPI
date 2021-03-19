@@ -59,31 +59,34 @@
         </div>
 
         <div class="hero-body container ">
-            <div class="column has-text-centered">
-                <h1 class="title">Meal Locator</h1>
-                <div class="subtitle">Food Search by Hall name or Meal</div>
-                <div class="container columns is-max-widescreen">
-                    <div class="column info is-half">
-                        <div class="block">
-                            <form id="search-form" action="" class="block form">
-                                <div class="field">
-                                    <label class="subtitle" for="search">Search</label>
-                                    <div class="control">
-                                        <input class="input" type="text" name="search" id="search"
-                                            placeholder="Enter a meal or hall name" />
+            <div class="column">
+                <h1 class="title has-text-centered">Meal Locator</h1>
+                <div class="subtitle has-text-centered">Food Search by Hall name or Meal</div>
+                <div class="box" id="wrapper">
+                    <div class="container columns">
+                        <div class="column info">
+                            <div class="block">
+                                <form id="search-form" action="" class="block form">
+                                    <div class="field">
+                                        <label class="subtitle has-text-dark" for="search">Search</label>
+                                        <div class="control">
+                                            <input class="input" type="text" name="search" id="search"
+                                                placeholder="Enter a meal or hall name" />
+                                        </div>
                                     </div>
+                                </form>
+                                <div class="reply-box block">
+                                    <div class="reply-message"></div>
+                                    <ul class="target-list"></ul>
                                 </div>
-                            </form>
-                            <div class="reply-box block">
-                                <div class="reply-message"></div>
-                                <ul class="target-list"></ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="column is-half is-align-self-center">
-                        <div class="box" id="mapid">Map</div>
+                        <div class="column is-align-self-center">
+                            <div class="box" id="mapid">Map</div>
+                        </div>
                     </div>
                 </div>
+                
                 </div>
         </div>
     </section>
