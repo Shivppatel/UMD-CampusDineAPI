@@ -30,6 +30,9 @@
             <div class="navbar-end">
               <a class="navbar-item is-active"> Home </a>
               <a href="./pages/about.html" class="navbar-item"> About </a>
+              <a href="./pages/mealMap.html" class="navbar-item">
+                Meal Map
+              </a>
               <a href="./pages/documentation.html" class="navbar-item">
                 Documentation
               </a>
@@ -76,22 +79,22 @@
     </div>
 
     <div class="hero-foot">
-      <div class="tabs is-centered is-boxed is-medium">
+      <div class="tabs is-centered ">
         <ul>
           <li class="">
-            <a>
-              <span class="icon is-small"><i class="fas fa-clock" aria-hidden="true"></i></span>
-              <span>Hall Hours</span>
+            <a href="#halls">
+              <span class="icon is-small"><i class="fas fa-utensils" aria-hidden="true"></i></span>
+              <span>Dining Halls</span>
             </a>
           </li>
           <li>
-            <a>
+            <a href="#macros">
               <span class="icon is-small"><i class="fas fa-weight" aria-hidden="true"></i></span>
               <span>Meals and Macros</span>
             </a>
           </li>
           <li>
-            <a>
+            <a href="#form">
               <span class="icon is-small"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
               <span>Add a Location</span>
             </a>
@@ -102,16 +105,15 @@
     <i class="fas fa-chevron-down has-text-centered pb-3"></i>
   </section>
 
-  <section class="section has-text-centered has-background-info-light">
+  <section class="section has-text-centered has-background-info-light" id="halls">
     <p class="title">Nearby Places</p>
     <p class="subtitle">
-      A simple container to divide your page into <strong>sections</strong>,
-      like the one you're currently reading.
+      Places that are near campus to get food.
     </p>
     <div class="tile is-ancestor is-justify-content-center"></div>
   </section>
 
-  <div class="has-background-info-light">
+  <div class="has-background-info-light box" id="macros"> 
     <p class="title has-text-centered">Meal Macro Information</p>
     <table class="table is-bordered is-hoverable is-fullwidth is-striped">
       <thead>
@@ -130,7 +132,7 @@
     </table>
   </div>
 
-  <section class="section has-background-info-light">
+  <section class="section has-background-info-light" id="form">
     <p class="title">Add Restaurant</p>
     <p class="subtitle">
       Do you know a place <strong>near</strong> campus? Add it to our
@@ -147,9 +149,25 @@
       </div>
       <div class="field">
         <p class="control has-icons-left">
-          <input class="input" name="hall_location" type="text" placeholder="Location" />
+          <input class="input" name="hall_address" type="text" placeholder="Address" />
           <span class="icon is-small is-left">
-            <i class="fas fa-map-signs"></i>
+            <i class="fas fa-map-pin"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left">
+          <input class="input" name="hall_lat" type="text" placeholder="Latitude" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-compass"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left">
+          <input class="input" name="hall_long" type="text" placeholder="Longitude" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-compass"></i>
           </span>
         </p>
       </div>
