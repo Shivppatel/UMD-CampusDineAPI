@@ -9,3 +9,17 @@
 #wrapper {
   min-width: 55vw;
 }
+.hero .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #34495e;
+  z-index: 9999;
+}
+.navbar-burger {
+  color: white;
+}
+
+#navbarMenuHeroB {
+  background-color: #34495e;
+}
