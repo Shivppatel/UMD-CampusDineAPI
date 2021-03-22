@@ -1,19 +1,19 @@
 export default (sequelize, DataTypes) => {
   const Meals = sequelize.define(
-    "Meals",
+    'Meals',
     {
       meal_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         unique: true,
-        primaryKey: true,
+        primaryKey: true
       },
       meal_name: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
       meal_category: {
-        type: DataTypes.STRING,
-      },
+        type: DataTypes.STRING
+      }
     },
     { freezeTableName: true, timestamps: false }
   );
