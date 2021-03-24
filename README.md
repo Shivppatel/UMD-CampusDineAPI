@@ -42,24 +42,25 @@
 #### Request
 
 `GET /api/dining`
-
+  
     curl http://localhost:3000/api/dining
 
 #### Response
     [{
-            "hall_id":1,
-            "hall_name":"North Campus Dining Hall",
-            "hall_location":"North Campus"
-        },
-        {
-            "hall_id":2,
-            "hall_name":"South Campus Dining Hall",
-            "hall_location":"South Campus"
-        },
-        {
-            "hall_id":3,
-            "hall_name":"251 North Dining Hall",
-            "hall_location":"North Campus"
+        "hall_id": 1,
+        "hall_name": "North Campus Diner",
+        "hall_address": "4121 Farm Dr, College Park, MD 20742",
+        "hall_lat": "38.9923223",
+        "hall_long": "-76.9466945"
+    },
+    {
+        "hall_id": 2,
+        "hall_name": "South Campus Dining Hall",
+        "hall_address": "7093 Preinkert Dr, College Park, MD 20740",
+        "hall_lat": "38.9832579",
+        "hall_long": "-76.9437231"
+    },
+        ...
     }]
 ## Get a Specific Dining Hall
 
@@ -74,7 +75,9 @@
     [{
         "hall_id":1,
         "hall_name":"North Campus Dining Hall",
-        "hall_location":"North Campus"
+        "hall_address": "4121 Farm Dr, College Park, MD 20742",
+        "hall_lat": "38.9923223",
+        "hall_long": "-76.9466945"
     }]
     
 
@@ -85,14 +88,14 @@
 
 `POST /api/dining`
 
-    curl -d "hall_id=4&hall_name=Example&hall_location=Hornbake" -X POST http://localhost:3000/api/dining
-
+    curl -d "hall_name=Example1&hall_address=Stamp&hall_lat=38.9923&hall_long=-76.9466" -X POST http://localhost:3000/api/dining
 #### Response
 
     {
-        "hall_id":"4",
         "hall_name":"Example",
-        "hall_location":"Hornbake"
+        "hall_address": "4121 Farm Dr, College Park, MD 20742",
+        "hall_lat": "38.9923223",
+        "hall_long": "-76.9466945"
     }
 
 ## Updating an Existing Dining Hall
@@ -101,7 +104,7 @@
 
 `PUT /api/dining`
 
-    curl -d "hall_id=4&hall_name=Example1&hall_location=Stamp" -X PUT http://localhost:3000/api/dining
+    curl -d "hall_id=4&hall_name=Example1&hall_address=Stamp&hall_lat=38.9923&hall_long=-76.9466" -X PUT http://localhost:3000/api/dining
 
 #### Response
 
@@ -129,7 +132,6 @@
 `GET /api/meals`
 
     curl http://localhost:3000/api/meals
-
 #### Response
     [{
         "meal_id":1,
