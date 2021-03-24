@@ -282,7 +282,7 @@
 ## Get Meal Macro Information
 #### Request
 
-`GET /api/custom`
+`GET /api/map/data`
 
     curl --location --request GET 'http://localhost:3000/api/table/data'  
 
@@ -320,7 +320,7 @@
 ## Get Meal Location Information
 #### Request
 
-`GET /api/custom`
+`GET /api/map/data`
 
     curl --location --request GET 'http://localhost:3000/api/map/data'  
 
