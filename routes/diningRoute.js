@@ -69,7 +69,9 @@ router.put('/', async (req, res) => {
     await db.DiningHall.update(
       {
         hall_name: req.body.hall_name,
-        hall_location: req.body.hall_location
+        hall_address: req.body.hall_address,
+        hall_lat: req.body.hall_lat,
+        hall_long: req.body.hall_long
       },
       {
         where: {
