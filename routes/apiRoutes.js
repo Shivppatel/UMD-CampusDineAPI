@@ -10,6 +10,46 @@ router.get('/', (req, res) => {
   res.send('Welcome to the UMD Dining API!');
 });
 
+// /////////////////////////////////
+// ////WholeMeal demos////////
+// /////////////////////////////////
+router.route('/wholeMeal')
+  .get(async (req, res) => {
+    try {
+      const meals = await db.Meals.findAll();
+      const macros = await db.Macros.findAll();
+      const wholeMeals = meals.map((meal) => {
+        const macroEntry = macros.find((macro) => macro.meal_id === meal.meal_id);
+        console.log('meal', meal)
+        console.log('macroEntry', macroEntry);
+
+
+        return {
+          ...meal.dataValues,
+          ...macroEntry.dataValues
+        };
+      });
+      res.json({data: wholeMeals});
+    } catch (err) {
+      console.error(err);
+      res.json({message: 'Something went wrong on the server'});
+    }
+  });
+
+router.route('/wholeMeal2')
+  .get(async (req, res) => {
+    try {
+      const meals = await db.Meals.findAll({ include: db.Macros });
+      console.log(meals);
+      res.json(meals);
+    } catch (err) {
+      console.error(err);
+      res.json({message: err});
+    }
+  });
+
+
+
 /// /////////////////////////////////
 /// ////Dining Hall Endpoints////////
 /// /////////////////////////////////

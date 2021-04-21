@@ -17,5 +17,12 @@ export default (sequelize, DataTypes) => {
     },
     { freezeTableName: true, timestamps: false }
   );
+  Meals.associate = (models) => {
+    Meals.hasOne(models.Macros, {
+      foreignKey: 'meal_id'
+    });
+  };
   return Meals;
 };
+
+// TODO: associate meals and macros
