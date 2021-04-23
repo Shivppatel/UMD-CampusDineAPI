@@ -9,32 +9,43 @@ router.get('/', (req, res) => {
   res.send('Welcome to the UMD Dining API!');
 });
 
-const macrosCustom = `
-  SELECT 
-    Meals.meal_name AS meal_name,
-    Macros.calories AS calories,
-    Macros.carbs AS carbs,
-    Macros.sodium AS sodium,
-    Macros.protein AS protein,
-    Macros.fat AS fat,
-    Macros.cholesterol AS cholesterol
-  FROM
-    Meals
-    JOIN Macros
-  WHERE
-    Meals.meal_id = Macros.meal_id`;
-router.get('/table/data', async (req, res) => {
+// /////////////////////////////////
+// ////WholeMeal demos////////
+// /////////////////////////////////
+router.route('/wholeMeal').get(async (req, res) => {
   try {
-    const result = await db.sequelizeDB.query(macrosCustom, {
-      type: sequelize.QueryTypes.SELECT
+    const meals = await db.Meals.findAll();
+    const macros = await db.Macros.findAll();
+    const wholeMeals = meals.map((meal) => {
+      const macroEntry = macros.find((macro) => macro.meal_id === meal.meal_id);
+      console.log('meal', meal);
+      console.log('macroEntry', macroEntry);
+
+      return {
+        ...meal.dataValues,
+        ...macroEntry.dataValues
+      };
     });
-    res.json(result);
+    res.json({ data: wholeMeals });
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.json({ message: 'Something went wrong on the server' });
   }
 });
 
+router.route('/wholeMeal2').get(async (req, res) => {
+  try {
+    const meals = await db.Meals.findAll({ include: db.Macros });
+    console.log(meals);
+    res.json(meals);
+  } catch (err) {
+    console.error(err);
+    res.json({ message: err });
+  }
+});
+// /////////////////////////////////
+// ////Meal Map Custom SQL////////
+// /////////////////////////////////
 const mealMapCustom = `
   SELECT 
     hall_name,
@@ -59,6 +70,9 @@ router.get('/map/data', async (req, res) => {
     res.error('Server error');
   }
 });
+// /////////////////////////////////
+// ////Passed in Custom SQL Endpoint////////
+// ////////////////////////////////
 router.get('/custom', async (req, res) => {
   try {
     const result = await db.sequelizeDB.query(req.body.query, {
