@@ -36,5 +36,10 @@ export default (sequelize, DataTypes) => {
     },
     { freezeTableName: true, timestamps: false }
   );
+  Macros.associate = (models) => {
+    Macros.belongsTo(models.Meals, {
+      foreignKey: 'meal_id'
+    });
+  };
   return Macros;
 };
